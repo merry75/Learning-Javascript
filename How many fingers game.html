@@ -1,0 +1,68 @@
+<html>
+
+  <head>
+
+    <title>javascript</title>
+
+  </head>
+
+  <body>
+
+  <h1>How many fingers am I holding up ? </h1>
+  <p>
+    <input id="guess" type="text" />
+
+    <button id="verify">Guess!</button>
+  </p>
+
+  <h2>I have <input id="myNumber" type="text" /> fingers</h2>
+
+  <p>
+    <button id="computerGuess">Computer is guessing!</button>
+  </p>
+
+    <script type="text/javascript">
+      document.getElementById("verify").onclick = function () {
+        var Computer = Math.floor((Math.random() * 5) + 1);
+          if (document.getElementById("guess").value == Computer) {
+            alert("PGM!")
+          } else {
+            alert("Try Again LoL!")
+          }
+        }
+
+        function doAGuess(correctAnswer) {
+          var computerGuess = Math.floor((Math.random() * 5) + 1);
+
+          if (computerGuess == correctAnswer) {
+            return true;
+
+          } else {
+            return false;
+          }
+        }
+
+        document.getElementById("computerGuess").onclick = function () {
+            var myNumber = document.getElementById("myNumber").value;
+            var gotIt = false;
+            var numberOfGuesses = 1;
+            while (gotIt == false) {
+
+            var computerGuess = Math.floor((Math.random() * 5) + 1);
+
+            if (doAGuess(myNumber) == true) {
+              gotIt = true;
+              alert("Got it! It was a" + myNumber + ".It took me" + numberOfGuesses + "guesses." )
+              //computer is correct*/
+            } else {
+              numberOfGuesses++;
+              //computer is wrong*/
+            }
+          }
+}
+
+    </script>
+
+  </body>
+
+</html>
